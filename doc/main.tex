@@ -1,0 +1,254 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Legrand Orange Book
+% LaTeX Template
+% Version 1.4 (12/4/14)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Mathias Legrand (legrand.mathias@gmail.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Compiling this template:
+% This template uses biber for its bibliography and makeindex for its index.
+% When you first open the template, compile it from the command line with the 
+% commands below to make sure your LaTeX distribution is configured correctly:
+%
+% 1) pdflatex main
+% 2) makeindex main.idx -s StyleInd.ist
+% 3) biber main
+% 4) pdflatex main x 2
+%
+% After this, when you wish to update the bibliography/index use the appropriate
+% command above and make sure to compile with pdflatex several times 
+% afterwards to propagate your changes to the document.
+%
+% This template also uses a number of packages which may need to be
+% updated to the newest versions for the template to compile. It is strongly
+% recommended you update your LaTeX distribution if you have any
+% compilation errors.
+%
+% Important note:
+% Chapter heading images should have a 2:1 width:height ratio,
+% e.g. 920px width and 460px height.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt,fleqn]{book} % Default font size and left-justified equations
+
+\usepackage[top=3cm,bottom=3cm,left=3.2cm,right=3.2cm,headsep=10pt,a4paper]{geometry} % Page margins
+
+\usepackage{xcolor} % Required for specifying colors by name
+\definecolor{ocre}{RGB}{0,0,25} % Define the orange color used for highlighting throughout the book
+
+% Font Settings
+\usepackage{avant} % Use the Avantgarde font for headings
+%\usepackage{times} % Use the Times font for headings
+\usepackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the Sym­bol, Chancery and Com­puter Modern fonts
+
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
+% Bibliography
+\usepackage[style=alphabetic,sorting=nyt,sortcites=true,autopunct=true,babel=hyphen,hyperref=true,abbreviate=false,backref=true,backend=biber]{biblatex}
+\addbibresource{bibliography.bib} % BibTeX bibliography file
+\defbibheading{bibempty}{}
+
+% Index
+\usepackage{calc} % For simpler calculation - used for spacing the index letter headings correctly
+\usepackage{makeidx} % Required to make an index
+\makeindex % Tells LaTeX to create the files required for indexing
+\usepackage{verbatim}
+
+%----------------------------------------------------------------------------------------
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\input{structure} % Insert the commands.tex file which contains the majority of the structure behind the template
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\begin{document}
+
+\let\cleardoublepage\clearpage
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begingroup
+\thispagestyle{empty}
+\AddToShipoutPicture*{\put(2,4){\includegraphics[scale=0.6225]{dropbox}}} % Image background
+
+\begin{titlepage}
+\center % Center everything on the page
+ 
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\LARGE IIT Delhi}\\[1.0cm] % Name of your university/college
+\textsc{\Large COP 290 : Design Practices in Computer Science}\\[0.5cm] % Major heading such as course name
+\textsc{\large \textbf{Assignment 2 : MyDropbox}}\\[0.7cm] % Minor heading such as course title
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{ \huge \bfseries Design Document(Final)}\\[0.6cm] % Title of your document
+\HRule \\[1.5cm]
+ 
+%----------------------------------------------------------------------------------------
+%	AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+%\begin{minipage}{0.4\textwidth}
+%\begin{flushleft} \large
+\emph{\textbf{Authors:}}\\
+\textbf{Anmol Sood - 2013MT60587}  % Your name
+\\
+\textbf{Kartikay Garg - 2013MT60600} % Your name
+\\
+\textbf{Rahul Kumar Rathore - 2013MT60610}  % Your name
+
+%\end{flushleft}
+%\end{minipage}
+%\begin{minipage}{0.4\textwidth}
+
+%\begin{flushright} \large
+
+%\emph{Supervisors:} \\
+%\textbf{Prof. Huzur Saran} 
+%\textbf{Prof. Kolin Paul} % Supervisor's Name
+%\end{flushright}
+%\end{minipage}\\[2cm]
+
+% If you don't want a supervisor, uncomment the two lines below and remove the section above
+%\Large \emph{Author:}\\
+%John \textsc{Smith}\\[3cm] % Your name
+
+\vspace{30mm}
+
+\includegraphics[scale=0.05]{iitd}\\[1cm] % Include a department/university logo - this will require the graphicx package
+ 
+
+%----------------------------------------------------------------------------------------
+%	DATE SECTION
+%----------------------------------------------------------------------------------------
+\vspace{30mm}
+
+{\large February 20,2015}\\[2cm] % Date, change the \today to a set date if you want to be precise
+
+%----------------------------------------------a------------------------------------------
+%	LOGO SECTION
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+
+\end{titlepage}
+
+\section{Abstract}
+The objective of this project is to design a cloud storage software which stores user files on a server and provides access as and when requested by the user. The software will be efficient in file transfers, secure authentication and data  transfer, inter-client file transfer and sharing. A persistant storage system with proper syncing has also been implemented from scratch.
+
+\section{Introduction}
+
+The application makes use of TCP/IP sockets at the client side and server side and uses OpenSSL to securely send data and authenticate clients to efficiently implement the functionality provided by various cloud storage providers like "\textbf{Dropbox}". Functionalities to share files and download the files that have been shared to a user are also provided. A sync button has been provided to sync the client folder with the server folder and this has been down keeping persistent storage in mind.
+
+\section{Setup and Software Used}
+Environment : \textbf{Ubuntu 14.04} 
+\\Language : \textbf{C++}
+\\GUI : \textbf{QT}
+\\Communication : \textbf{TCP/IP Sockets}
+\\Security : \textbf{OpenSSL}
+\\DBMS     : \textbf{SQLite3}
+\\Debugger : \textbf{gdb}
+\\Documentation : \textbf{\LaTeX}
+
+
+\section{Overall Design}
+
+On the client side ,the Desktop application equips the user with the ability to upload files onto the storage server and access them when a secured connection with the server is established
+ The user can upload files/directories using the GUI.. The application when launched for the first time on a device will generate a directory in the Home folder of the user device. The application while running, will sync the latest files from the server onto the folder or in the reverse direction depending on the situation. This is done keeping in mind that there is no extra transfer of data apart from that which is completely necessary. A timestamp based synchronization technique has been implemented which has been discussed in detail further in the Synch 
+
+%\\
+%The application maintains the version history of the files added by the user so that the user can retain a unmodified file that was once synced to the server. 
+The user has the liberty to share access rights with other users using this application so that they can also access the files of the first user.
+%The application is based upon \textbf{"rsync"} algorithm for transferring data between the client and the user and \textbf{"zlib"} for compression wherever required.
+\\
+\section{Sub Components}
+\begin{enumerate}
+\item \textbf{File transfer} 
+\item \textbf{Sharing}
+\item \textbf{Syncing}
+%\item \textbf{Maintaining File Version History}
+\item \textbf{Persistent Storage}
+\item \textbf{Security}
+
+\end{enumerate}
+
+
+\subsection{File Transfer}
+To transfer files between client and the user, the file is divided into chunks of memory which are then transferred over the secured connection between the client and the users. The chunks of file created are encrypted using SSL and then transferred over the connection to prevent any kind of data steal over the connection. The user has the option to upload files using the GUI and sync them with the server as and when he wants.
+
+\subsection{Sharing}
+\begin{itemize}
+\item Users will be able to control the sharing permissions associated with each file/directory using the GUI of the this application. The user clicks on the share button and enters the name of the user with which he wants to share the file.
+\item To implement this, a SQL database(using \textbf{sqllite}) is associated with each user using this application. This database, for each file, stores the information about the others users who have been shared this file by the owner. This database also stores the information about the files that have been shared with the current user. 
+%\\ To implement this, a permissions file is associated with every file/directory on the server. By default, the file will contain the username of only the owner of the file/directory. Whenever, the user grants permissions to access/edit the directory/file to another user, an entry correspoding to the username of the user with which the file has been shared gets stored in the permissions file.
+%\\ The user will be able to check all files shared with him through the application and will have the option to download it to his own Dropbox. 
+\item All the files shared with the current user appear in the \textbf{Shared} section in the GUI of the application when launched by the user. The user can download the shared files directly from the interface and they will appear in the \textbf{Shared} section in the Home Dropbox folder of the user.
+\end{itemize}
+%\subsection{Syncing and Minimal Data Usage}
+%We will be using "\textbf{rsync}" algorithm integrated with "\textbf{zlib}"(for compression) for syncing the files between the client and the server adhering to minimal data usage. This algorithm is used when the two devices have versions of the same file that are otherwise identical except for certain differences between the two files. 
+%\\The algorithm is as follows :
+%\\The server splits the file into numerous chunks each for which it computes \textbf{Rolling Check Sum} and \textbf{MD5 Hash Value}. It then sends these computed values back to the client. The client then itself computes these sums for each and every chunk of the file. If the values turn out to be different for certain chunks then that chunk is transferred to the server. If the Rolling check sums match for two chunks, then their corresponding MD5 hash values are calculated. If they turn out to be equal, then the two chunks are identical(with high probability) else different.
+%\\The probability that this algorithm gives incorrect result is \textbf{${2^{-160}}$}.
+%\\Minimal data usage is highly linked with Maintaining File Version history which is discussed later in the text.
+
+\subsection{Syncing}
+
+Syncing forms an integral part of any cloud storage software and must function efficiently so that the account of a user remains up to date at both the client as well as the server end. We have used a timestamp based synchronization and implemented this in the following manner :
+\begin{itemize}
+\item Whenever the user tells the application to sync the storage at the client and the server end, the client sends over a database containing the information about the files present at the server along with the information about when the client device synced with the server with the current username.
+\item The database contains information about the files as  their name, their path, when they were last modified, whether a given path depicts a directory or a file at the client end.
+\item The server on receiving this database as input, runs several SQL queries over the input database and the database stored at the server end corresponding to the current user.
+\item These queries (using suitable case analysis) can determine the fate of a file, that if this file will be deleted on the client, uploaded to the server from the client, deleted on the server or downloaded from the server to the client. Timestamps of files along with last syncing time of server/client's computer is used to handle all cases.
+\item The user has an option to manually download the files that are shared to the current user by other users.
+\end{itemize}
+
+
+
+
+
+%\subsection{Maintaining File Version History}
+%With every file stored on the server, an instance of hash table is associated which maintains the updates and changes made on the file thus minimizing the data usage on the server side. Whenever the user requests for the file, all the changes concatenate and give the user the final modified latest version. This can be achieved with the "\textbf{rsync}" algorithm discussed above. Whenever a chunk of memory is found different in the client and the server, this chunk is delivered to the server which then stores as another element in the hash table instance associated with this file. 
+%\\This way, we can maintain the version history of the files and minimize the data usage on the  server side.
+
+\subsection{Persistent Storage}
+A perfectly persistent design has not been implemented. Also however whenever the connection is made,any files that have been completely transferred are considered syncronized and will not be transferred again on the next sync unless they are modified.
+
+\subsection{Security}
+We use OpenSSL to securely transfer data through sockets.
+\\ \textbf{For client authentication} , the OpenSSL implmentation of the SHA-1 algorithm is used to hash the passwords and these passwords are stored on the server. We plan to salt the stored passwords to make them unbreakable against well known offline attacks like the rainbow attack. Also the server identity is checked through certificates.
+
+
+
+
+
+
+
+
+\end{document} 
+% * <kartikay123@gmail.com> 2015-03-01T07:19:48.872Z:
+%
+% 
+%

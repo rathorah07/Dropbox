@@ -1,0 +1,42 @@
+README
+
+I. Directory List
+------------
+
+src/Client           : Contains all source files to make Client
+src/Server		     : Contains all source files to make Server
+Doc                  : .tex files and other files to generate Documentation
+DesignDocumentation.pdf : Design Documentation in .pdf format	
+Makefile		  : Makefile	
+README			  : README file
+
+
+Program can be built using default make targets which are discussed.
+
+II. Make targets
+---------------
+make  compiles the source code
+make DEBUG executes the application with DEBUG_MODE. It's a mode with verbose output at each stage.
+make clean  cleans all the temporary and the executables
+make server port=y spawns the server
+make client server=x  port=y spawns a client which connects to server x. x is  server's ip address, and y is port number.
+
+III How to Use
+---------------
+On make client server=x port=y , if a connection between client and server is established,  the QT application opens and gives user the option to login or sign up for a new account by filling simple forms. After the user logs in , he is able to see his folder and add any files/folders to it. He also has the option to synchronize his folder with his folder on the server. The user can also share a particular file with any other user by using the share button and entering the name of the user with which he wants to share the file. By clicking on the "Shared with me" button , the user can also view all files that have been shared with him and download them if he wants to. The user has an option to logout his account by clicking the logout button on the GUI.
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+All rights reserved. Project Designed for Assignment 2 COP290 : Design Practices in Computer Science.
+Authors : 	  Anmol Sood 	      (2013MT60587)
+	  	  Kartikay Garg       (2013MT60610)
+	 	  Rahul Kumar Rathore (2013MT60600)		
+Last Updated : 2nd March,2015
+----------------------------------------------------------------------------------------------------------------------------------------------
+   
+
+
+
+
+
+

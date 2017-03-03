@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/Images">
+        <file>Actions-folder-new-icon.png</file>
+        <file>upload-icon.png</file>
+        <file>Share-icon.png</file>
+        <file>Recycle-Bin-icon.png</file>
+        <file>cloud_sync_weather-128.png</file>
+        <file>gnome_panel_force_quit.png</file>
+        <file>Downloads-Folder-icon.png</file>
+    </qresource>
+</RCC>

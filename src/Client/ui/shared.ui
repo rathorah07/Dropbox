@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Shared</class>
+ <widget class="QMainWindow" name="Shared">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>385</width>
+    <height>352</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QListView" name="listView"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>LeftToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionDownload"/>
+  </widget>
+  <action name="actionDownload">
+   <property name="icon">
+    <iconset resource="dropboxresources.qrc">
+     <normaloff>:/Images/Downloads-Folder-icon.png</normaloff>:/Images/Downloads-Folder-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Download</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="dropboxresources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
